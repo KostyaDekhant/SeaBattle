@@ -1,8 +1,8 @@
 public class GridClass {
+    int width = 10;
+    int height = 10;
+
     GridClass() {}
 
-    public int[] getSize() {
-        //todo добавить поля для класса с размерами поля и выдать их
-        return new int[2];
-    }
+    public int[] getSize() { return new int[]{width, height}; }
 }
