@@ -28,4 +28,11 @@ public class GridTest {
         Assert.assertNotNull(grid);
     }
 
+    @Test
+    public void shipTest(){
+        GridClass gridClass = new GridClass();
+        int [][] grid = gridClass.getGrid();
+        boolean isShipCreated = grid[0][0] == 1;
+        Assert.assertTrue(isShipCreated);
+    }
 }
