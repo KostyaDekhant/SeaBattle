@@ -20,4 +20,12 @@ public class GridTest {
         GridClass grid = new GridClass();
         Assert.assertArrayEquals(new int[]{10,10}, grid.getSize());
     }
+
+    @Test
+    public void getGrid(){
+        GridClass gridClass = new GridClass();
+        int [][] grid = gridClass.getGrid();
+        Assert.assertNotNull(grid);
+    }
+
 }
