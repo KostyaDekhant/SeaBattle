@@ -8,4 +8,10 @@ public class GridTest {
         GridClass grid = new GridClass();
         Assert.assertNotNull(grid);
     }
+
+    @Test
+    public void getGridSizeTest(){
+        GridClass grid = new GridClass();
+        Assert.assertNotNull(grid.getSize());
+    }
 }
