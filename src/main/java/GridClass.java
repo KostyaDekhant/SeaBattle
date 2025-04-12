@@ -25,15 +25,15 @@ public class GridClass {
         s2.addCell(2, 3); grid[2][3] = 1;
 
         Ship s3 = new Ship();
-        s3.addCell(2, 2); grid[5][5] = 1;
-        s3.addCell(2, 3); grid[6][5] = 1;
-        s3.addCell(2, 3); grid[7][5] = 1;
+        s3.addCell(5, 5); grid[5][5] = 1;
+        s3.addCell(6, 5); grid[6][5] = 1;
+        s3.addCell(7, 5); grid[7][5] = 1;
 
         Ship s4 = new Ship();
-        s4.addCell(2, 2); grid[8][5] = 1;
-        s4.addCell(2, 3); grid[8][6] = 1;
-        s4.addCell(2, 3); grid[8][7] = 1;
-        s4.addCell(2, 3); grid[8][8] = 1;
+        s4.addCell(8, 5); grid[8][5] = 1;
+        s4.addCell(8, 6); grid[8][6] = 1;
+        s4.addCell(8, 7); grid[8][7] = 1;
+        s4.addCell(8, 8); grid[8][8] = 1;
 
         ships.add(s1);
         ships.add(s2);
