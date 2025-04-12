@@ -56,4 +56,22 @@ public class GridTest {
         }
         Assert.assertTrue(shipCount > 0); // хотя бы один корабль
     }
+
+    @Test
+    public void doubleDeckShipExistsTest() {
+        GridClass grid = new GridClass();
+        grid.generateShips();
+        int[][] field = grid.getGrid();
+        boolean found = false;
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (field[i][j] == 1 && field[i][j + 1] == 1) {
+                    found = true;
+                }
+            }
+        }
+        Assert.assertTrue(found);
+    }
+
 }
