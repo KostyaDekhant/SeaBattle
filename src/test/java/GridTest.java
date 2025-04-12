@@ -116,4 +116,12 @@ public class GridTest {
         int cell = grid.shoot(4, 4); // предположим, что там пусто
         Assert.assertEquals(-1,cell); //-1 - промах
     }
+
+    @Test
+    public void hitShotTest() {
+        GridClass grid = new GridClass();
+        grid.generateShips();
+        int cell = grid.shoot(0, 0);
+        Assert.assertEquals(2,cell); //2 - попадание
+    }
 }
