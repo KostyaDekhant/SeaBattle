@@ -4,9 +4,14 @@ public class GridClass {
 
     private int[][] grid = new int[width][height];
 
-    GridClass() { grid[0][0] = 1; }//todo сделать метод для генерации кораблей
+    GridClass() {  } //todo перенести метод генерации в конструктор
 
     public int[] getSize() { return new int[]{width, height}; }
 
     public int[][] getGrid() { return grid;}
+
+    public void generateShips() {
+        //todo сделать генерацию всех кораблей
+        grid[0][0] = 1;
+    }
 }
