@@ -59,4 +59,25 @@ public class GridClass {
         }
         return false;
     }
+
+    public void printMap() {
+        System.out.print("  ");
+        for (int j = 1; j <= 10; j++) System.out.print(j + " ");
+        System.out.println();
+
+        for (int i = 0; i < 10; i++) {
+            if('А' + i >= 'Ё') System.out.print((char) ('Б' + i) + " ");
+            else System.out.print((char) ('А' + i) + " ");
+            for (int j = 0; j < 10; j++) {
+                if (grid[i][j] == 2) {
+                    System.out.print("X ");
+                } else if (grid[i][j] == -1) {
+                    System.out.print("• ");
+                } else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
