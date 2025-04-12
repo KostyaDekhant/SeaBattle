@@ -13,11 +13,11 @@ public class GridClass {
     public void generateShips() {
         //todo сделать генерацию всех кораблей
         grid[0][0] = 1;
-        grid[2][2] = 1;
-        grid[2][3] = 1;
+        grid[2][2] = 1; grid[2][3] = 1;
 
-        grid[5][5] = 1;
-        grid[6][5] = 1;
-        grid[7][5] = 1; // вертикальный трёхпалубник
+        grid[5][5] = 1; grid[6][5] = 1; grid[7][5] = 1;
+
+        grid[8][5] = 1; grid[8][6] = 1; grid[8][7] = 1; grid[8][8] = 1;
+
     }
 }
