@@ -1,6 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
     private GridClass grid = new GridClass();
 
+    private List<Ship> ships = new ArrayList<>();
+
+    public void generateShips() {
+        ships = grid.generateShips();
+    }
+
+    public List<Ship> getShips() {
+        return ships;
+    }
     public GridClass getGrid() {
         return grid;
     }
