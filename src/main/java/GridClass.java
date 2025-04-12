@@ -20,4 +20,9 @@ public class GridClass {
         grid[8][5] = 1; grid[8][6] = 1; grid[8][7] = 1; grid[8][8] = 1;
 
     }
+
+    public int shoot(int x, int y) {
+        return -1;
+    }
+
 }
