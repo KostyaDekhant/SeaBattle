@@ -22,7 +22,13 @@ public class GridClass {
     }
 
     public int shoot(int x, int y) {
-        return -1;
+        if (grid[x][y] == 1) {
+            grid[x][y] = 2; // попадание
+            return 2;
+        } else {
+            grid[x][y] = -1; // промах
+            return -1;
+        }
     }
 
 }
