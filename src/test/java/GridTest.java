@@ -109,4 +109,11 @@ public class GridTest {
         Assert.assertTrue(found);
     }
 
+    @Test
+    public void missShotTest() {
+        GridClass grid = new GridClass();
+        grid.generateShips();
+        int cell = grid.shoot(4, 4); // предположим, что там пусто
+        Assert.assertEquals(-1,cell); //-1 - промах
+    }
 }
