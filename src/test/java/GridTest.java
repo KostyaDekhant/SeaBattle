@@ -43,4 +43,17 @@ public class GridTest {
         Assert.assertTrue(found);
     }
 
+    @Test
+    public void generateShipsMethodExistsTest() {
+        GridClass grid = new GridClass();
+        grid.generateShips();
+        int[][] field = grid.getGrid();
+        int shipCount = 0;
+        for (int[] row : field) {
+            for (int cell : row) {
+                if (cell == 1) shipCount++;
+            }
+        }
+        Assert.assertTrue(shipCount > 0); // хотя бы один корабль
+    }
 }
