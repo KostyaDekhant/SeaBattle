@@ -74,4 +74,20 @@ public class GridTest {
         Assert.assertTrue(found);
     }
 
+    @Test
+    public void tripleDeckShipExistsTest() {
+        GridClass grid = new GridClass();
+        grid.generateShips();
+        int[][] field = grid.getGrid();
+        boolean found = false;
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (field[i][j] == 1 && field[i+1][j] == 1 && field[i+2][j] == 1) {
+                    found = true;
+                }
+            }
+        }
+        Assert.assertTrue(found);
+    }
 }
