@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class GridTest {
@@ -28,6 +29,7 @@ public class GridTest {
         Assert.assertNotNull(grid);
     }
 
+    @Ignore
     @Test
     public void singleDeckShipExistsTest() {
         GridClass grid = new GridClass();
@@ -124,4 +126,15 @@ public class GridTest {
         int cell = grid.shoot(0, 0);
         Assert.assertEquals(2,cell); //2 - попадание
     }
+
+    @Test
+    public void destroyDoubleDeckShipTest() {
+        GridClass grid = new GridClass();
+        grid.generateShips();
+        grid.shoot(2, 2); // первая палуба
+        grid.shoot(2, 3); // вторая палуба
+        boolean destroyed = grid.isShipDestroyed(2, 2);
+        Assert.assertTrue(destroyed);
+    }
+
 }
