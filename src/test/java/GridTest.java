@@ -137,14 +137,5 @@ public class GridTest {
         grid.shoot(2, 3); // вторая палуба
         boolean destroyed = grid.isShipDestroyed(2, 2);
         Assert.assertTrue(destroyed);
-    }
-
-    @Test
-    public void playerHasShipListTest() {
-        Player player = new Player();
-        player.generateShips();
-        List<Ship> ships = player.getShips();
-        Assert.assertFalse(ships.isEmpty());
-    }
 
 }

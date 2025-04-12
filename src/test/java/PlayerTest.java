@@ -1,5 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
+
 public class PlayerTest {
     @Test
     public void playerClassCreationTest(){
@@ -33,5 +36,13 @@ public class PlayerTest {
         player.getGrid().shoot(8, 6); player.getGrid().shoot(8, 5);
 
         Assert.assertTrue(player.hasLost());
+    }
+
+    @Test
+    public void playerHasShipListTest() {
+        Player player = new Player();
+        player.generateShips();
+        List<Ship> ships = player.getShips();
+        Assert.assertFalse(ships.isEmpty());
     }
 }
