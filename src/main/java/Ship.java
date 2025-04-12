@@ -15,4 +15,13 @@ public class Ship {
     public List<int[]> getCells() {
         return cells;
     }
+
+    public boolean isDestroyed(GridClass grid) {
+        for (int[] cell : cells) {
+            int x = cell[0];
+            int y = cell[1];
+            if (grid.getGrid()[x][y] != 2) return false;
+        }
+        return true;
+    }
 }
