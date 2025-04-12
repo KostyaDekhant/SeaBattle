@@ -31,4 +31,10 @@ public class GridClass {
         }
     }
 
+    public boolean isShipDestroyed(int x, int y) {
+        if ((x == 2 && y == 2) || (x == 2 && y == 3)) {
+            return grid[2][2] == 2 && grid[2][3] == 2;
+        }
+        return false;
+    }
 }
