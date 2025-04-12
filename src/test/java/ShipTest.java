@@ -1,6 +1,9 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+import java.util.Set;
+
 public class ShipTest {
     @Test
     public void createShipAndAddCellsTest() {
@@ -22,5 +25,16 @@ public class ShipTest {
         grid.getGrid()[2][3] = 2;
 
         Assert.assertTrue(ship.isDestroyed(grid));
+    }
+
+    @Test
+    public void thereAreTenShipsOnTheFieldTest() {
+        GridClass grid = new GridClass();
+        Player player = new Player();
+        player.generateShips();
+
+        List<Ship> ships = player.getShips();
+
+        Assert.assertEquals("Должно быть 10 кораблей на поле", 10, ships.size());
     }
 }
