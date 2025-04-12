@@ -28,4 +28,19 @@ public class GridTest {
         Assert.assertNotNull(grid);
     }
 
+    @Test
+    public void singleDeckShipExistsTest() {
+        GridClass grid = new GridClass();
+        int[][] field = grid.getGrid();
+        boolean found = false;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (field[i][j] == 1) {
+                    found = true;
+                }
+            }
+        }
+        Assert.assertTrue(found);
+    }
+
 }
