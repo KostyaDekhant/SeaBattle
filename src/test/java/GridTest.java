@@ -90,4 +90,23 @@ public class GridTest {
         }
         Assert.assertTrue(found);
     }
+
+    @Test
+    public void quadrupleDeckShipExistsTest() {
+        GridClass grid = new GridClass();
+        grid.generateShips();
+        int[][] field = grid.getGrid();
+        boolean found = false;
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (field[i][j] == 1 && field[i][j+1] == 1
+                        && field[i][j+2] == 1 && field[i][j+3] == 1) {
+                    found = true;
+                }
+            }
+        }
+        Assert.assertTrue(found);
+    }
+
 }
