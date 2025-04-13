@@ -18,7 +18,7 @@ public class Player {
     }
 
     public boolean makeMove(int x, int y, Player opponent) {
-        return opponent.grid.shoot(x, y) != 1;
+        return opponent.grid.shoot(x, y) == 2;
     }
 
     public boolean hasLost() {
