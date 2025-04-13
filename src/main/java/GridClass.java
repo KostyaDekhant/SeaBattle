@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class GridClass {
     int width = 10;
@@ -14,46 +15,57 @@ public class GridClass {
     public int[][] getGrid() { return grid;}
 
     public List<Ship> generateShips() {
-        //todo сделать генерацию всех кораблей
         List<Ship> ships = new ArrayList<>();
+        int[] shipSizes = {4, 3, 3, 2, 2, 2, 1, 1, 1, 1};
+        Random rand = new Random();
 
-        Ship s1 = new Ship();
-        s1.addCell(0, 0); grid[0][0] = 1;
+        for (int size : shipSizes) {
+            boolean placed = false;
 
-        Ship s2 = new Ship();
-        s2.addCell(2, 2); grid[2][2] = 1;
-        s2.addCell(2, 3); grid[2][3] = 1;
+            while (!placed) {
+                boolean horizontal = rand.nextBoolean();
+                int x = rand.nextInt(10);
+                int y = rand.nextInt(10);
 
-        Ship s3 = new Ship();
-        s3.addCell(5, 5); grid[5][5] = 1;
-        s3.addCell(6, 5); grid[6][5] = 1;
-        s3.addCell(7, 5); grid[7][5] = 1;
+                List<int[]> positions = new ArrayList<>();
+                boolean fits = true;
 
-        Ship s4 = new Ship();
-        s4.addCell(8, 5); grid[8][5] = 1;
-        s4.addCell(8, 6); grid[8][6] = 1;
-        s4.addCell(8, 7); grid[8][7] = 1;
-        s4.addCell(8, 8); grid[8][8] = 1;
+                for (int i = 0; i < size; i++) {
+                    int nx = x + (horizontal ? 0 : i);
+                    int ny = y + (horizontal ? i : 0);
 
-        Ship s5 = new Ship(); grid[9][9] = 1;
-        Ship s6 = new Ship(); grid[9][7] = 1;
-        Ship s7 = new Ship(); grid[9][5] = 1;
-        Ship s8 = new Ship(); grid[9][3] = 1;
-        Ship s9 = new Ship(); grid[9][1] = 1;
-        Ship s10 = new Ship(); grid[9][0] = 1;
-
-        ships.add(s1);
-        ships.add(s2);
-        ships.add(s3);
-        ships.add(s4);
-        ships.add(s5);
-        ships.add(s6);
-        ships.add(s7);
-        ships.add(s8);
-        ships.add(s9);
-        ships.add(s10);
+                    if (nx >= 10 || ny >= 10 || !isAreaClear(nx, ny)) {
+                        fits = false;
+                        break;
+                    }
+                    positions.add(new int[]{nx, ny});
+                }
+                if (fits) {
+                    Ship ship = new Ship();
+                    for (int[] pos : positions) {
+                        ship.addCell(pos[0], pos[1]);
+                        grid[pos[0]][pos[1]] = 1;
+                    }
+                    ships.add(ship);
+                    placed = true;
+                }
+            }
+        }
 
         return ships;
+    }
+
+    private boolean isAreaClear(int x, int y) {
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dy = -1; dy <= 1; dy++) {
+                int nx = x + dx;
+                int ny = y + dy;
+                if (nx >= 0 && ny >= 0 && nx < 10 && ny < 10) {
+                    if (grid[nx][ny] == 1) return false;
+                }
+            }
+        }
+        return true;
     }
 
     public int shoot(int x, int y) {
