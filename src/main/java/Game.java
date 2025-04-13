@@ -21,9 +21,11 @@ public class Game {
     public void play() {
         Player current = player1;
         Player opponent = player2;
+        boolean isFirst = true;
 
         while (true) {
-            System.out.println("Ход игрока:");
+            String playerNum = isFirst ? "1" : "2";
+            System.out.println("Ход игрока "+ playerNum + ":");
             opponent.getGrid().printMap(); // маска: только попадания и промахи
             System.out.print("Введите координаты (x y): ");
             int x = scanner.nextInt();
@@ -39,6 +41,7 @@ public class Game {
                 Player temp = current;
                 current = opponent;
                 opponent = temp;
+                isFirst = !isFirst;
             }
 
             if (opponent.hasLost()) {
