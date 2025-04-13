@@ -89,10 +89,11 @@ public class GridClass {
         System.out.print("  ");
         for (int j = 1; j <= 10; j++) System.out.print(j + " ");
         System.out.println();
-
+        int temp = 0;
         for (int i = 0; i < 10; i++) {
-            if('А' + i >= 'Ё') System.out.print((char) ('Б' + i) + " ");
-            else System.out.print((char) ('А' + i) + " ");
+            char ch = (char)('А' + i + temp);
+            if (ch == 'И') temp++;
+            System.out.print(ch + " ");
             for (int j = 0; j < 10; j++) {
                 if (grid[i][j] == 2) {
                     System.out.print("X ");
@@ -105,4 +106,5 @@ public class GridClass {
             System.out.println();
         }
     }
+
 }
